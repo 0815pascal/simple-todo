@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import ReactDOM from 'react-dom'
+import WebFont from 'webfontloader'
+import CSS from 'csstype'
 
 type FormElem = React.FormEvent<HTMLFormElement>
 
@@ -9,6 +11,8 @@ interface ITodo {
 }
 
 export default function App(): JSX.Element {
+  const env = process.env.NODE_ENV
+
   const [value, setValue] = useState<string>('')
   const [todos, setTodos] = useState<ITodo[]>([])
 
@@ -35,12 +39,54 @@ export default function App(): JSX.Element {
     setTodos(newTodos)
   }
 
+  WebFont.load({
+    google: {
+      families: ['Pacifico']
+    }
+  });
+
+  const container = {
+    margin: '0 auto',
+    width: '30%', 
+    backgroundColor: '#FFF',
+    borderRadius: '0.25em',
+    padding: '0.5em',
+    fontSize: '4rem',
+    fontFamily: '\'Open Sans\', sans-serif',
+  }
+
+  const Header = {
+    fontFamily: 'Pacifico',
+    textAlign: 'center',
+    marginTop: '0'
+  }
+
+  const AddButton: CSS.Properties = {
+    backgroundColor: '#ffc107',
+    width: '100%',
+    padding: '15px',
+    border: 'none', 
+    borderRadius: '5px', 
+    color: '#fff',
+    
+  }
+
+  const Input: CSS.Properties = {
+    borderBottom:' 3px solid #ffc107',
+    borderTop: 'none', 
+    borderLeft: 'none', 
+    borderRight: 'none',
+    width: '100%',
+    height: '60px',
+    fontSize: '2rem'
+  }
+
   return (
-    <Fragment>
-    <h1>Todo List</h1>
+    <div style={container}>
+    <h1 style={Header}>Todo List</h1>
     <form onSubmit={handleSubmit}>
-      <input type="text" value={value} onChange={e => setValue(e.target.value)} required />
-      <button type="submit">Add Todo</button>
+      <input style={Input} type="text" placeholder="What's on your mind?" value={value} onChange={e => setValue(e.target.value)} required />
+      <button type="submit" style={AddButton}>Add Todo</button>
     </form>
     <section>
       {todos.map((todo: ITodo, index: number) => (
@@ -54,7 +100,7 @@ export default function App(): JSX.Element {
         </ Fragment>
       ))}
     </section>
-    </ Fragment>
+    </ div>
   )
 }
 
