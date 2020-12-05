@@ -1,0 +1,45 @@
+*{
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: .5rem;
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  font-size: 2rem;
+}
+
+input:active, input:focus, button:active, button:focus {
+  outline: none;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+ 
+}
+
+li{
+  border-bottom: 1px solid #ADB5BD;
+  font-size: 2rem;
+  padding: 0.5rem 0;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left, .right{
+  display: inline-block;
+}
+
+.delete{
+  margin-left: 0.25rem;
+}

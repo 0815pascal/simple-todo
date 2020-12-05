@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react'
 import ReactDOM from 'react-dom'
 import WebFont from 'webfontloader'
 import CSS from 'csstype'
+import './main.css'
 
 type FormElem = React.FormEvent<HTMLFormElement>
 
@@ -65,8 +66,6 @@ export default function App(): JSX.Element {
     backgroundColor: '#ffc107',
     width: '100%',
     padding: '15px',
-    border: 'none', 
-    borderRadius: '5px', 
     color: '#fff',
     
   }
@@ -78,7 +77,8 @@ export default function App(): JSX.Element {
     borderRight: 'none',
     width: '100%',
     height: '60px',
-    fontSize: '2rem'
+    fontSize: '2rem',
+    display: 'block'
   }
 
   return (
@@ -89,16 +89,20 @@ export default function App(): JSX.Element {
       <button type="submit" style={AddButton}>Add Todo</button>
     </form>
     <section>
+      <ul>
       {todos.map((todo: ITodo, index: number) => (
-        <Fragment key={index}>
-        <div style={{textDecoration: todo.complete ? 'line-through': '' }}>{todo.text}</div>
-        <button type='button' onClick={() => completeTodo(index)}>
-          {' '}
-          {todo.complete ? 'Incomplete' : 'Complete'}{' '}
-        </button>
-        <button type='button' onClick={() => deleteTodo(index)}>X</button>
-        </ Fragment>
+        <li key={index}>
+        <div className="todo left" style={{textDecoration: todo.complete ? 'line-through': '' }}>{todo.text}</div>
+        <div className="right">
+          <button type='button' onClick={() => completeTodo(index)}>
+            {' '}
+            {todo.complete ? 'Undone' : 'Done'}{' '}
+          </button>
+          <button className="delete" type='button' onClick={() => deleteTodo(index)}>X</button>
+        </div>
+        </ li>
       ))}
+      </ul>
     </section>
     </ div>
   )
