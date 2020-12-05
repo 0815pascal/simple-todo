@@ -29,7 +29,6 @@ ul{
 li{
   border-bottom: 1px solid #ADB5BD;
   font-size: 2rem;
-  padding: 0.5rem 0;
   width: 100%;
   display: -webkit-flex;
   display: flex;
@@ -42,4 +41,9 @@ li{
 
 .delete{
   margin-left: 0.25rem;
+}
+
+.todo{
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 10px;
 }
