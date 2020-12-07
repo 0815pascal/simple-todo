@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 import WebFont from 'webfontloader'
 import CSS from 'csstype'
 import './main.css'
+import SvgDeleteOutline24Px from './iconComponents/Delete'
+import SvgCheck24Px from './iconComponents/Check'
+import SvgCheckBoxBlank from './iconComponents/CheckBoxBlank'
 
 type FormElem = React.FormEvent<HTMLFormElement>
 
@@ -94,11 +97,11 @@ export default function App(): JSX.Element {
         <li key={index}>
         <div className="todo left" style={{textDecoration: todo.complete ? 'line-through': '' }}>{todo.text}</div>
         <div className="right">
-          <button type='button' onClick={() => completeTodo(index)}>
+          <button type='button' className="controlButton" onClick={() => completeTodo(index)}>
             {' '}
-            {todo.complete ? 'Undone' : 'Done'}{' '}
+            {todo.complete ? <SvgCheck24Px /> : <SvgCheckBoxBlank /> }{' '}
           </button>
-          <button className="delete" type='button' onClick={() => deleteTodo(index)}>X</button>
+          <button className="controlButton" type='button' onClick={() => deleteTodo(index)}><SvgDeleteOutline24Px /> </button>
         </div>
         </ li>
       ))}

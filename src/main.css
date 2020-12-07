@@ -6,8 +6,7 @@ html {
   font-size: 20px;
 }
 
-button {
-  background-color: #007bff;
+ button {
   color: white;
   border: 1px solid transparent;
   border-radius: .5rem;
@@ -33,6 +32,7 @@ li{
   display: -webkit-flex;
   display: flex;
   justify-content: space-between;
+  height: 3.5rem;
 }
 
 .left, .right{
@@ -40,10 +40,22 @@ li{
 }
 
 .delete{
-  margin-left: 0.25rem;
+  margin-left: 0.15rem;
 }
 
 .todo{
   font-family: 'Courier New', Courier, monospace;
   margin-top: 10px;
+}
+
+.controlButton{
+  background: none;
+}
+
+.controlButton svg {
+  fill: #AAA;
+}
+
+.controlButton svg:hover {
+  fill: #333;
 }
